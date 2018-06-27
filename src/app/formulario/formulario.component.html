@@ -1,7 +1,8 @@
+<app-navbar></app-navbar>
 <app-banner></app-banner>
 <div class="general container-fluid text-right" style="padding-top: 50px;">
   <div class=" buttons container-fluid">
-    <button type="button" class="btn btn-outline-primary" (click)="flagAddON()">Agregar</button>
+    <button type="button" class="btn btn-outline-primary" routerLink="/agregar">Agregar</button>
     <button type="button" class="btn btn-outline-danger" (click)="borrar()" >Borrar</button>
   </div>
 
@@ -38,37 +39,13 @@
         <a (click)="nextPag()" class="cp btn btn-sm"> >> </a>
     </div>
 
-    <div *ngIf="flagAdd">
+    <!-- <div *ngIf="flagAdd">
       <input id="nombre" type="text" class="form-control" placeholder="Nombre">
       <input id="marca" type="text" class="form-control" placeholder="Marca" >
       <input id="modelo" type="text" class="form-control"placeholder="Modelo"> 
       <button type="button" class="btn btn-outline-primary" (click)="formAdd()">Agregar</button>
       <button type="button" class="btn btn-outline-danger" (click)="flagsOFF()">Cancelar</button>
     </div>
-    
-<!--     
-    <app-form-edit
-      [flag]="flagEdit",
-      [nombre]="pivot.au_nombre",
-      [id]="pivot.au_id",
-      [marca]="pivot.au_marca",
-      [modelo]="pivot.au_modelo",
-      [listado]="listado",
-      [CantidadDePaginas]="CantidadDePaginas",
-
-    >
-
-    </app-form-edit> -->
-
-  <div *ngIf="flagEdit">
-
-      <input id="nombreEditar" type="text" class="form-control" value={{pivot.au_nombre}}>
-      <input id="marcaEditar" type="text" class="form-control" value="{{pivot.au_marca}}">
-      <input id="modeloEditar" type="text" class="form-control" value="{{pivot.au_modelo}}">
-
-      <button type="button" class="btn btn-outline-primary" (click)="formEdit()">Editar</button>
-      <button type="button" class="btn btn-outline-danger" (click)="flagsOFF()">Cancelar</button>
-
-  </div>
+     -->
 </div>
 

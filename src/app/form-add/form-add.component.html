@@ -1,7 +1,8 @@
-<div *ngIf="flagAdd">
-  <input id="nombre" type="text" class="form-control" placeholder="Nombre">
-  <input id="marca" type="text" class="form-control" placeholder="Marca" >
-  <input id="modelo" type="text" class="form-control"placeholder="Modelo"> 
-  <button type="button" class="btn btn-outline-primary" (click)="formAdd()">Agregar</button>
-  <button type="button" class="btn btn-outline-danger" (click)="flagsOFF()">Cancelar</button>
-</div>
+<app-navbar></app-navbar>
+<app-banner></app-banner>
+
+<input id="nombre" type="text" class="form-control" placeholder="Nombre">
+<input id="marca" type="text" class="form-control" placeholder="Marca" >
+<input id="modelo" type="text" class="form-control"placeholder="Modelo"> 
+<button type="button" class="btn btn-outline-primary" (click)="formAdd()">Agregar</button>
+<button type="button" class="btn btn-outline-danger" routerLink="/home">Volver</button>

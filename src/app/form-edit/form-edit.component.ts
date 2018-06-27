@@ -17,7 +17,7 @@ import { Location } from '@angular/common';
 export class FormEditComponent implements OnInit {
 
   constructor(private FormularioService:FormularioService, private _activatedRoute:ActivatedRoute, private _location:Location) { }
-auto = new Object();
+  auto = new Object();
   ngOnInit() {
     
     this.listarenformulario();
@@ -25,7 +25,6 @@ auto = new Object();
 
  
   listaFiltrada;
-
   listarenformulario(){
     this.FormularioService.listarpost() // llamar a "listarpost()" del servicio
     .map((Response) => Response.json()) //transformar a json
@@ -39,8 +38,7 @@ auto = new Object();
     });
   };
   pivot;
-  Editar(){
-
+  formEdit(){
     this.auto["id"] = this.listaFiltrada.au_id;
     this.pivot = document.getElementById("nombreEditar");
     this.auto["nombre"] = this.pivot.value;  //leer nombre y guardar en el objeto
@@ -51,8 +49,8 @@ auto = new Object();
 // se tomo lops valores de los inputs
     this.FormularioService.editPost(this.auto) // se envio el objeto para ser editado
     .subscribe((data) => { // respuesta del servidor
-     location.href = "/home"; // cuando hay respuesta vuelve a la home.
-    console.log(data);
+      location.href = "/home"; // cuando hay respuesta vuelve a la home.
+      console.log(data);
     })
   }  
 
