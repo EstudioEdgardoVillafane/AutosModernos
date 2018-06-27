@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormularioService} from '../formulario.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -6,6 +6,8 @@ import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
 import { catchError, map, tap } from 'rxjs/operators';
 import { isNull } from 'util';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-formulario',
@@ -22,58 +24,10 @@ export class FormularioComponent implements OnInit {
   constructor(private FormularioService:FormularioService) { }
 
   ngOnInit() {
+    console.log("Se listo todo de nuevo.");
    this.listarenformulario(); // listar en formulario al inciar la pagina y al modificar
   }
-
-
-  flagAddON(){
-  this.flagAdd = true; //activar inputs en el html para agregar elementos al formulario 
-  };
-  flagsOFF(){
-    this.flagAdd = false; //desactivar inputs en el html para agregar elementos al formulario
-    this.flagEdit = false; //desactivar inputs en el html para editar elementos en formulario
-  };
-
-  formAdd(){
-    this.flagsOFF(); // desactivar visibilidad de inputs
-    this.pivot = document.getElementById("nombre");
-    this.auto["nombre"] = this.pivot.value;  //leer nombre y guardar en el objeto
-    this.pivot = document.getElementById("marca");
-    this.auto["marca"] = this.pivot.value;//leer marca y guardar en el objeto
-    this.pivot = document.getElementById("modelo");
-    this.auto["modelo"] = this.pivot.value;//leer modelo y guardar en el objeto
-
-    this.FormularioService.enviarpost(this.auto) //enviar el objeto a metodo del servicio
-
-    .subscribe((data) => {
-      console.log(data); //checkear funcionamiento
-      this.listarenformulario();
-    });  
-  };
-  /**
-   * Usamos el objeto auto para guardar los valores de los input que estan en patanlla.
-   * usamos un auxiliar
-   * 3 parametros objeto.
-   */
-  formEdit(){
-    this.flagsOFF(); // desactivar visibilidad de inputs
-    this.pivot = document.getElementById("nombreEditar");
-    (this.pivot == isNull)? false :
-    this.auto["nombre"] = this.pivot.value;  //leer nombre y guardar en el objeto
-    this.pivot = document.getElementById("marcaEditar");
-    (this.pivot == isNull)? false :
-    this.auto["marca"] = this.pivot.value;//leer marca y guardar en el objeto
-    this.pivot = document.getElementById("modeloEditar");
-    (this.pivot == isNull)? false : 
-    this.auto["modelo"] = this.pivot.value;//leer modelo y guardar en el objeto 
-    this.auto["id"] = this.id;
-    this.FormularioService.editPost(this.auto) //enviar el objeto a metodo del servicio
-
-    .subscribe((data) => {
-      console.log(data); //checkear funcionamiento
-      this.listarenformulario();
-    });
-  };
+  
 
 id;
 //toma valor de un checkbox tildado 
@@ -136,6 +90,8 @@ onCheck(id : number){
       }
     }
     this.listarenformulario();
+          // location.href = "/home"; // cuando hay respuesta vuelve a la home.
+    
   }
 
 
