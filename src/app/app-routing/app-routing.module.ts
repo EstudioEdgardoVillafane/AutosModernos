@@ -4,6 +4,7 @@ import { Routes, RouterModule} from '@angular/router';
 
 //Componentes                       
 import {FormularioComponent} from '../formulario/formulario.component' 
+import { FormEditComponent } from '../form-edit/form-edit.component';
 
 /*                Rutas                             */
 
@@ -11,6 +12,7 @@ import {FormularioComponent} from '../formulario/formulario.component'
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: FormularioComponent },
+  { path: 'editar/:id', component: FormEditComponent }
 
 ];
 

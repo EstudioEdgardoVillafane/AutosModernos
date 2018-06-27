@@ -1,4 +1,5 @@
-<div class="general container-fluid">
+<app-banner></app-banner>
+<div class="general container-fluid text-right" style="padding-top: 50px;">
   <div class=" buttons container-fluid">
     <button type="button" class="btn btn-outline-primary" (click)="flagAddON()">Agregar</button>
     <button type="button" class="btn btn-outline-danger" (click)="borrar()" >Borrar</button>
@@ -24,27 +25,40 @@
           <td>{{listarEnTabla.au_marca}}</td>
           <td>{{listarEnTabla.au_modelo}}</td>
           <td>
-            <button (click)="handleFunctionEdit(listarEnTabla.au_id)" class="btn btn-sm btn-info">
+            <button routerLink="/editar/{{listarEnTabla.au_id}}" class="btn btn-sm btn-info">
               Editar
             </button>
           </td>
         </tr>
       </tbody>
     </table>
-    <div class="row">
-        Paginador: {{PaginaActual}} de {{CantidadDePaginas}} 
+    <div class="row" class="text-center">
+        Pagina: {{PaginaActual}} de {{CantidadDePaginas}} 
         <a (click)="prevPag()" class="cp btn btn-sm"> << </a> 
         <a (click)="nextPag()" class="cp btn btn-sm"> >> </a>
     </div>
 
-  <div *ngIf="flagAdd">
+    <div *ngIf="flagAdd">
       <input id="nombre" type="text" class="form-control" placeholder="Nombre">
       <input id="marca" type="text" class="form-control" placeholder="Marca" >
-      <input id="modelo" type="text" class="form-control"placeholder="Modelo">
-
+      <input id="modelo" type="text" class="form-control"placeholder="Modelo"> 
       <button type="button" class="btn btn-outline-primary" (click)="formAdd()">Agregar</button>
-      <button type="button" class="btn btn-outline-danger" (click)="flagAddOFF()">Cancelar</button>
-  </div>
+      <button type="button" class="btn btn-outline-danger" (click)="flagsOFF()">Cancelar</button>
+    </div>
+    
+<!--     
+    <app-form-edit
+      [flag]="flagEdit",
+      [nombre]="pivot.au_nombre",
+      [id]="pivot.au_id",
+      [marca]="pivot.au_marca",
+      [modelo]="pivot.au_modelo",
+      [listado]="listado",
+      [CantidadDePaginas]="CantidadDePaginas",
+
+    >
+
+    </app-form-edit> -->
 
   <div *ngIf="flagEdit">
 

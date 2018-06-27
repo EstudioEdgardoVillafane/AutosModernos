@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormularioService} from '../formulario.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -22,6 +22,7 @@ export class FormularioComponent implements OnInit {
   constructor(private FormularioService:FormularioService) { }
 
   ngOnInit() {
+    console.log("Se listo todo de nuevo.");
    this.listarenformulario(); // listar en formulario al inciar la pagina y al modificar
   }
 
@@ -32,7 +33,7 @@ export class FormularioComponent implements OnInit {
   flagsOFF(){
     this.flagAdd = false; //desactivar inputs en el html para agregar elementos al formulario
     this.flagEdit = false; //desactivar inputs en el html para editar elementos en formulario
-  };
+  };  
 
   formAdd(){
     this.flagsOFF(); // desactivar visibilidad de inputs
