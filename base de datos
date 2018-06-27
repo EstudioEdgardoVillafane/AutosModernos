@@ -1,0 +1,67 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 27-06-2018 a las 17:56:16
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 5.6.20
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `auto`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `autoo`
+--
+
+CREATE TABLE `autoo` (
+  `au_id` int(11) NOT NULL,
+  `au_nombre` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `au_marca` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `au_modelo` int(11) NOT NULL,
+  `au_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `autoo`
+--
+
+INSERT INTO `autoo` (`au_id`, `au_nombre`, `au_marca`, `au_modelo`, `au_status`) VALUES
+(4, 'Polo', 'Volkswagen', 2008, 1),
+(5, 'Gol', 'Volkswagen', 2007, 1),
+(6, 'Golff', 'Volkswagen', 2018, 1),
+(7, 'Virtus', 'Volkswagen', 2018, 1),
+(8, 'Vento', 'Volkswagen', 2013, 1),
+(9, 'Focus', 'Ford', 2014, 1),
+(10, 'Fiesta', 'Fords', 2010, 1),
+(11, 'RCZ', 'Peugeot', 2011, 1),
+(12, 'Captiva', 'Chevrolet', 2015, 1),
+(13, 'Astra', 'Chevrolet', 2009, 1),
+(14, 'auto', 'auto', 1, 0),
+(15, 'a', 'a', 1, 0);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `autoo`
+--
+ALTER TABLE `autoo`
+  ADD PRIMARY KEY (`au_id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `autoo`
+--
+ALTER TABLE `autoo`
+  MODIFY `au_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
